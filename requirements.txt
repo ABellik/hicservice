@@ -1,0 +1,7 @@
+numpy
+pandas
+cooler
+h5py
+fastapi
+pydantic_settings
+uvicorn

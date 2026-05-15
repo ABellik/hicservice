@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  hic-service:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ${DATA_DIR}:/data
+    environment:
+      DATA_DIR: /data
