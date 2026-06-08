@@ -1,8 +1,8 @@
 """
-Auto-patch distutils.util.strtobool for Python 3.12+ compatibility.
+Patch distutils.util.strtobool for Python 3.12+ compatibility.
 
-This module automatically patches the missing strtobool function when imported.
-Add this to requirements.txt and create a .pth file to ensure it runs on startup.
+Import this module at the very start of your application to ensure
+distutils.strtobool is available for packages that depend on it.
 """
 
 import sys
@@ -14,9 +14,6 @@ def _strtobool_impl(val):
     True values are 'y', 'yes', 't', 'true', 'on', and '1'; false values
     are 'n', 'no', 'f', 'false', 'off', and '0'.  Raises ValueError if
     'val' is anything else.
-
-    This is the original distutils.util.strtobool implementation, included
-    because distutils was removed in Python 3.12.
     """
     val = val.lower()
     if val in ('y', 'yes', 't', 'true', 'on', '1'):

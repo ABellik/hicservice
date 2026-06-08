@@ -2,9 +2,12 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
-# Install Graphviz system dependency for pydot
+# Install system dependencies: graphviz for pydot, git for pastis, build-essential for iced
 RUN apt-get update && apt-get install -y --no-install-recommends \
     graphviz \
+    git \
+    build-essential \
+    python3-dev \
     && rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt .

@@ -7,8 +7,8 @@ import numpy as np
 def reconstruct_3d(matrix: np.array, type: str) -> np.ndarray:
     match type:
         case "mds":
-            return mds_estimate_X(matrix).tolist()
+            return mds_estimate_X(matrix, random_state=42).tolist()
         case "poisson":
-            return poisson_estimate_X(matrix).tolist()
+            return poisson_estimate_X(matrix, random_state=42).tolist()
         case _:
             raise ValueError("Reconstruction type " + type + " not supported.")

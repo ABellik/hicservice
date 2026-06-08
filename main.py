@@ -1,3 +1,6 @@
+# Patch distutils for Python 3.12+ compatibility (must be first!)
+import distutils_fix
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 

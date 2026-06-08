@@ -41,7 +41,6 @@ def create_api(app, settings, data_manager: DataManager):
         dataset = data_manager.get_dataset(identifier)
         matrix = dataset.get_region_pos(level, start, end, start, end)
         positions = compute_graph_layout(matrix, type, False)
-        print(positions)
         result = [[key, pos[0], pos[1]] for key, pos in positions.items()]
         return result
 
@@ -49,7 +48,5 @@ def create_api(app, settings, data_manager: DataManager):
     def calculate_reconstruction(identifier: str, level: int, type: str, start: int, end: int):
         dataset = data_manager.get_dataset(identifier)
         matrix = dataset.get_region_pos(level, start, end, start, end)
-        positions = reconstruct_3d(matrix, type)
-        print(positions)
-        return positions
+        return reconstruct_3d(matrix, type)
 
